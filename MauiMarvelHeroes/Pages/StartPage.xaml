@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiMarvelHeroes.Pages.StartPage">
+
+    <Grid
+        IgnoreSafeArea="{OnPlatform Android=False, iOS=True}">
+
+
+        <!-- Heroes Images -->
+        <Image
+            x:Name="imgThor"
+            Opacity="0"
+            Source="thor.png"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            TranslationX="-100"
+            TranslationY="30"
+            HeightRequest="200"/>
+
+        <Image
+            x:Name="imgLobezno"
+            Opacity="0"
+            Source="lobezno.png"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            TranslationX="-200"
+            TranslationY="300"
+            HeightRequest="96"/>
+        
+        <Image
+            x:Name="imgHulk"
+            Opacity="0"
+            Source="hulk.png"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            TranslationX="100"
+            TranslationY="200"
+            HeightRequest="900"/>
+        
+        <Image
+            Opacity="0"
+            x:Name="imgSpiderman"
+            Source="spiderman.png"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            TranslationX="100"
+            TranslationY="50"
+            HeightRequest="200"/>
+
+        <Image
+            x:Name="imgCaptain"
+            Opacity="0"
+            Source="capitan.png"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            TranslationX="-80"
+            TranslationY="400"
+            HeightRequest="300"/>
+
+
+        <Image
+            x:Name="imgIronman"
+            Opacity="0"
+            Source="ironman.png"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            TranslationX="-100"
+            TranslationY="600"
+            HeightRequest="200"/>
+
+
+        <Border
+            x:Name="stackIntro"
+            Opacity="0"
+            Padding="24,32"
+            BackgroundColor="{StaticResource RedMarvel}"
+            Stroke="{StaticResource Gray900}"
+            HorizontalOptions="Fill"
+            VerticalOptions="End"
+            Margin="20">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="24"/>
+            </Border.StrokeShape>
+            <VerticalStackLayout>
+                <Label Text=".NET MAUI Marvel Heroes" 
+                       Style="{StaticResource Headline}"
+                       Margin="10"/>
+                <Label Text="Consulta tus personajes, comics y películas favoritas del universo Marvel !"
+                       Style="{StaticResource Body}"
+                       Margin="10"/>
+                <Button Text="Entrar"
+                        Margin="10"
+                        Command="{Binding GotoMainPageCommand}"/>
+            </VerticalStackLayout>
+        </Border>
+
+
+
+    </Grid>
+
+</ContentPage>

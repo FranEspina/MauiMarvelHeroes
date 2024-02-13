@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:MauiMarvelHeroes.Pages"
+             xmlns:vm="clr-namespace:MauiMarvelHeroes.ViewModels"
+             x:Class="MauiMarvelHeroes.Pages.MainPage"
+             x:DataType="vm:MainViewModel"
+             Title="">
+    <FlexLayout Wrap="Wrap" AlignContent="SpaceEvenly" JustifyContent="SpaceAround" >
+        <ImageButton x:Name="imgHeroes"
+            Source="marvel_heroes.png"
+            HeightRequest="200"
+            Command="{Binding GotoMoviesCommand}"
+            />
+        <ImageButton x:Name="imgComics"
+            Source="marvel_comics.png"
+            HeightRequest="200"     
+            Command="{Binding GotoMoviesCommand}"
+            />
+        <ImageButton x:Name="imgFilms"
+            Source="marvel_studios.png"
+            HeightRequest="200"
+            Command="{Binding GotoMoviesCommand}"
+            />
+    </FlexLayout>
+    
+</pages:ContentPageBase>
