@@ -396,4 +396,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-/MauiStrava/Resources/Raw/apikeys.json
+/MauiMarvelHeroes/Services/MarvelApi/MarvelApiKeys.cs
