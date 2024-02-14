@@ -9,7 +9,7 @@
              Title="">
 
     <Grid>
-        <CollectionView ItemsSource="{Binding Characters}"
+        <CollectionView ItemsSource="{Binding Items}"
                         RemainingItemsThreshold="1"
                         RemainingItemsThresholdReachedCommand="{Binding LoadMoreItemsCommand}">
             <CollectionView.ItemsLayout>

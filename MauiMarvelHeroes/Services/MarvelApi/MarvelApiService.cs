@@ -30,28 +30,32 @@ namespace MauiMarvelHeroes.Services.MarvelApi
             _requestProvider = requestProvider;
         }
 
-        public async Task<MarvelResponse<MarvelComic>> GetComicsAsync(uint limit = 10, uint offset = 0)
+        public async Task<MarvelResponse<T>> GetMarvelListAsync<T>(uint limit = 10, uint offset = 0) 
         {
-            var queryParameters = await GetQueryParamsAsync(limit, offset);
-            var urlBaseWithParameters = $"{ComicsUrlBase}?{queryParameters}";
-            var uri = UriHelper.CombineUri(MarvelEndPoint, urlBaseWithParameters); 
-            return await _requestProvider.GetAsync<MarvelResponse<MarvelComic>>(uri);
-        }
+            string urlBase = "";
 
-        public async Task<MarvelResponse<MarvelCharacter>> GetCharactersAsync(uint limit = 10, uint offset = 0)
-        {
-            var queryParameters = await GetQueryParamsAsync(limit, offset);
-            var urlBaseWithParameters = $"{CharactersUrlBase}?{queryParameters}";
-            var uri = UriHelper.CombineUri(MarvelEndPoint, urlBaseWithParameters);
-            return await _requestProvider.GetAsync<MarvelResponse<MarvelCharacter>>(uri);
-        }
+            if (typeof(T) == typeof(MarvelComic))
+            {
+                urlBase = ComicsUrlBase;
+            }
+            else if (typeof(T) == typeof(MarvelCharacter))
+            {
+                urlBase = CharactersUrlBase;
+            }
+            else if (typeof(T) == typeof(MarvelComicSerie))
+            {
+                urlBase = ComicSeriesUrlBase;
+            }
+            else
+            {
+                throw new ArgumentException("Clase inesperada !");
+            }
 
-        public async Task<MarvelResponse<MarvelComicSerie>> GetComicSeriesAsync(uint limit = 10, uint offset = 0)
-        {
             var queryParameters = await GetQueryParamsAsync(limit, offset);
-            var urlBaseWithParameters = $"{ComicSeriesUrlBase}?{queryParameters}";
+            var urlBaseWithParameters = $"{urlBase}?{queryParameters}";
             var uri = UriHelper.CombineUri(MarvelEndPoint, urlBaseWithParameters);
-            return await _requestProvider.GetAsync<MarvelResponse<MarvelComicSerie>>(uri);
+
+            return await _requestProvider.GetAsync<MarvelResponse<T>>(uri);
         }
 
         private async Task<string> GetQueryParamsAsync(uint limit = 10, uint offset = 0)
