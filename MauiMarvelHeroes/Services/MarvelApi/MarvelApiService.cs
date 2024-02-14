@@ -26,12 +26,12 @@ namespace MauiMarvelHeroes.Services.MarvelApi
             _requestProvider = requestProvider;
         }
 
-        public async Task GetComicsAsync(uint limit = 10, uint offset = 0)
+        public async Task<MarvelResponse<MarvelComic>> GetComicsAsync(uint limit = 10, uint offset = 0)
         {
             var queryParameters = await GetQueryParamsAsync(limit, offset);
             var urlBaseWithParameters = $"{ComicsUrlBase}?{queryParameters}";
             var uri = UriHelper.CombineUri(MarvelEndPoint, urlBaseWithParameters); 
-            var marvelResponse = await _requestProvider.GetAsync<MarvelResponse>(uri);
+            return await _requestProvider.GetAsync<MarvelResponse<MarvelComic>>(uri);
         }
 
         private async Task<string> GetQueryParamsAsync(uint limit = 10, uint offset = 0)

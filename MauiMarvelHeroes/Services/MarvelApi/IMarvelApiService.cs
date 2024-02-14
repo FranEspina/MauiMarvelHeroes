@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MauiMarvelHeroes.Models.MarvelApi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace MauiMarvelHeroes.Services.MarvelApi
 {
     public interface IMarvelApiService
     {
-        Task GetComicsAsync(uint limit, uint offset);
+        Task<MarvelResponse<MarvelComic>> GetComicsAsync(uint limit, uint offset);
     }
 }

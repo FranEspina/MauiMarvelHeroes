@@ -19,7 +19,7 @@ namespace MauiMarvelHeroes.ViewModels
 
         public override async Task InitializeAsync()
         {
-            await _marvelApiService.GetComicsAsync(10, 0);
+            var response = await _marvelApiService.GetComicsAsync(10, 0);
         }
 
     }
