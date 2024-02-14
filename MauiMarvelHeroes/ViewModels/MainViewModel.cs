@@ -19,9 +19,9 @@ namespace MauiMarvelHeroes.ViewModels
         }
 
         [RelayCommand]
-        public async Task GotoMovies()
+        private async Task GotoMovies()
         {
-            await NavigationService.NavigateToAsync(nameof(MoviesPage));
+            await NavigationService.NavigateToAsync(nameof(ComicsPage));
         }
     }
 }

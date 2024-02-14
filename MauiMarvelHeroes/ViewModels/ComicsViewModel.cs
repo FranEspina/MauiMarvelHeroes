@@ -1,4 +1,5 @@
-﻿using MauiMarvelHeroes.Services.MarvelApi;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using MauiMarvelHeroes.Services.MarvelApi;
 using MauiMarvelHeroes.Services.Navigation;
 using MauiMarvelHeroes.ViewModels.Base;
 using System;
@@ -9,10 +10,17 @@ using System.Threading.Tasks;
 
 namespace MauiMarvelHeroes.ViewModels
 {
-    public class MoviesViewModel : ViewModelBase
+    public partial class ComicsViewModel : ViewModelBase
     {
+        [ObservableProperty]
+        private string copyright;
+
+        [ObservableProperty]
+        private string attributionText;
+
+
         private readonly IMarvelApiService _marvelApiService;
-        public MoviesViewModel(INavigationService navigationService, IMarvelApiService marvelApiService) : base(navigationService)
+        public ComicsViewModel(INavigationService navigationService, IMarvelApiService marvelApiService) : base(navigationService)
         {
             _marvelApiService = marvelApiService;
         }

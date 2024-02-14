@@ -17,7 +17,7 @@ namespace MauiMarvelHeroes.ViewModels
         }
 
         [RelayCommand]
-        public async Task GotoMainPage()
+        private async Task GotoMainPage()
         {
             await NavigationService.NavigateToAsync("//MainPage");
         }

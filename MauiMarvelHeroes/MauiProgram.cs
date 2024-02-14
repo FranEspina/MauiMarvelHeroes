@@ -49,7 +49,7 @@ namespace MauiMarvelHeroes
         {
             mauiAppBuilder.Services.AddSingleton<MainViewModel>();
             mauiAppBuilder.Services.AddSingleton<StartViewModel>();
-            mauiAppBuilder.Services.AddSingleton<MoviesViewModel>();
+            mauiAppBuilder.Services.AddSingleton<ComicsViewModel>();
 
             return mauiAppBuilder;
         }
@@ -58,7 +58,7 @@ namespace MauiMarvelHeroes
         {
             mauiAppBuilder.Services.AddSingleton<MainPage>();
             mauiAppBuilder.Services.AddTransient<StartPage>();
-            mauiAppBuilder.Services.AddTransient<MoviesPage>();
+            mauiAppBuilder.Services.AddTransient<ComicsPage>();
 
 
             return mauiAppBuilder;

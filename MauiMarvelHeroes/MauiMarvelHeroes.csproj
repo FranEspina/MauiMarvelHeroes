@@ -64,6 +64,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\ComicsPage.xaml.cs">
+	    <DependentUpon>ComicsPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\StartPage.xaml.cs">
 	    <DependentUpon>StartPage.xaml</DependentUpon>
 	  </Compile>
@@ -73,7 +76,7 @@
 	  <MauiXaml Update="Pages\MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\MoviesPage.xaml">
+	  <MauiXaml Update="Pages\ComicsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

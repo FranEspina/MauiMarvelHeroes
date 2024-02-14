@@ -27,7 +27,7 @@ namespace MauiMarvelHeroes
 
         private static void InitializeRouting()
         {
-            Routing.RegisterRoute(nameof(MoviesPage), typeof(MoviesPage));
+            Routing.RegisterRoute(nameof(ComicsPage), typeof(ComicsPage));
         }
     }
 }
