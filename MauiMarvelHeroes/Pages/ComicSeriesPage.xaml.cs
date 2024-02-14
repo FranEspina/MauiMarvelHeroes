@@ -2,9 +2,9 @@ using MauiMarvelHeroes.ViewModels;
 
 namespace MauiMarvelHeroes.Pages;
 
-public partial class ComicsPage : ContentPageBase
+public partial class ComicSeriesPage : ContentPageBase
 {
-	public ComicsPage(ComicsViewModel viewModel)
+	public ComicSeriesPage(ComicSeriesViewModel viewModel)
 	{
 		this.BindingContext = viewModel;
 

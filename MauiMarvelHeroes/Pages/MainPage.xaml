@@ -11,21 +11,21 @@
             Source="marvel_heroes.png"
             HeightRequest="200"
             Padding="10"
-            Command="{Binding GotoMoviesCommand}"
+            Command="{Binding GotoCharactersCommand}"
             />
         <ImageButton x:Name="imgComics"
             Source="marvel_comics.png"
             HeightRequest="200"     
             Padding="10"
                     
-            Command="{Binding GotoMoviesCommand}"
+            Command="{Binding GotoComicsCommand}"
             />
         <ImageButton x:Name="imgFilms"
             Source="marvel_studios.png"
             HeightRequest="200"
             Padding="10"
                      
-            Command="{Binding GotoMoviesCommand}"
+            Command="{Binding GotoComicSeriesCommand}"
             />
     </FlexLayout>
     

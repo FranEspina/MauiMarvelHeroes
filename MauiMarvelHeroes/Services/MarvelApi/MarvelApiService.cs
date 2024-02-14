@@ -19,6 +19,10 @@ namespace MauiMarvelHeroes.Services.MarvelApi
         public const string MarvelEndPoint = "https://gateway.marvel.com";
 
         private const string ComicsUrlBase = "v1/public/comics";
+        private const string CharactersUrlBase = "v1/public/characters";
+        private const string ComicSeriesUrlBase = "v1/public/series";
+
+
 
 
         public MarvelApiService(IRequestProvider requestProvider)
@@ -32,6 +36,22 @@ namespace MauiMarvelHeroes.Services.MarvelApi
             var urlBaseWithParameters = $"{ComicsUrlBase}?{queryParameters}";
             var uri = UriHelper.CombineUri(MarvelEndPoint, urlBaseWithParameters); 
             return await _requestProvider.GetAsync<MarvelResponse<MarvelComic>>(uri);
+        }
+
+        public async Task<MarvelResponse<MarvelCharacter>> GetCharactersAsync(uint limit = 10, uint offset = 0)
+        {
+            var queryParameters = await GetQueryParamsAsync(limit, offset);
+            var urlBaseWithParameters = $"{CharactersUrlBase}?{queryParameters}";
+            var uri = UriHelper.CombineUri(MarvelEndPoint, urlBaseWithParameters);
+            return await _requestProvider.GetAsync<MarvelResponse<MarvelCharacter>>(uri);
+        }
+
+        public async Task<MarvelResponse<MarvelComicSerie>> GetComicSeriesAsync(uint limit = 10, uint offset = 0)
+        {
+            var queryParameters = await GetQueryParamsAsync(limit, offset);
+            var urlBaseWithParameters = $"{ComicSeriesUrlBase}?{queryParameters}";
+            var uri = UriHelper.CombineUri(MarvelEndPoint, urlBaseWithParameters);
+            return await _requestProvider.GetAsync<MarvelResponse<MarvelComicSerie>>(uri);
         }
 
         private async Task<string> GetQueryParamsAsync(uint limit = 10, uint offset = 0)

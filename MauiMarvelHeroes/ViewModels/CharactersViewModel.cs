@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace MauiMarvelHeroes.ViewModels
 {
-    public partial class ComicsViewModel : ViewModelBase
+    public partial class CharactersViewModel : ViewModelBase
     {
         private readonly IMarvelApiService _marvelApiService;
         
@@ -27,20 +27,20 @@ namespace MauiMarvelHeroes.ViewModels
         private string attributionText = "";
 
         [ObservableProperty]
-        private ObservableCollection<MarvelComic> comics = new();
+        private ObservableCollection<MarvelCharacter> characters = new();
 
-        public ComicsViewModel(INavigationService navigationService, IMarvelApiService marvelApiService) : base(navigationService)
+        public CharactersViewModel(INavigationService navigationService, IMarvelApiService marvelApiService) : base(navigationService)
         {
             _marvelApiService = marvelApiService;
         }
 
         public override async Task InitializeAsync()
         {
-            var response = await _marvelApiService.GetComicsAsync(_limit, _offset);
+            var response = await _marvelApiService.GetCharactersAsync(_limit, _offset);
 
             Copyright = response.Copyright;
             AttributionText = response.AttributionText;
-            Comics = new ObservableCollection<MarvelComic>(response.Data.Results);
+            Characters = new ObservableCollection<MarvelCharacter>(response.Data.Results);
         }
 
         [RelayCommand]
@@ -50,11 +50,11 @@ namespace MauiMarvelHeroes.ViewModels
 
             await IsBusyFor(async () =>
                     {
-                        var response = await _marvelApiService.GetComicsAsync(_limit, _offset);
-                        var comics = response.Data.Results;
-                        foreach (var comic in comics)
+                        var response = await _marvelApiService.GetCharactersAsync(_limit, _offset);
+                        var characters = response.Data.Results;
+                        foreach (var character in characters)
                         {
-                            Comics.Add(comic);
+                            Characters.Add(character);
                         }
                     });
         }

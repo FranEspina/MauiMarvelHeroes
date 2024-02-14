@@ -18,8 +18,10 @@ namespace MauiMarvelHeroes
                 .UseMauiApp<App>()  
                 .ConfigureFonts(fonts =>
                 {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("ACMESecretAgentBB_Reg.ttf", "ACMESecretAgentBBRegular");
+                    fonts.AddFont("ACMESecretAgentBB_Ital.ttf", "ACMESecretAgentBBItalic");
+                    fonts.AddFont("ACMESecretAgentBB_BoldItal.ttf", "ACMESecretAgentBBItalicBold");
+                    fonts.AddFont("BadaboomBB_Reg.ttf", "BadaboomBBRegular");
                 })
                 .RegisterAppServices()
                 .RegisterViewModels()
@@ -49,7 +51,9 @@ namespace MauiMarvelHeroes
         {
             mauiAppBuilder.Services.AddSingleton<MainViewModel>();
             mauiAppBuilder.Services.AddSingleton<StartViewModel>();
-            mauiAppBuilder.Services.AddSingleton<ComicsViewModel>();
+            mauiAppBuilder.Services.AddTransient<ComicsViewModel>();
+            mauiAppBuilder.Services.AddTransient<CharactersViewModel>();
+            mauiAppBuilder.Services.AddTransient<ComicSeriesViewModel>();
 
             return mauiAppBuilder;
         }
@@ -59,7 +63,8 @@ namespace MauiMarvelHeroes
             mauiAppBuilder.Services.AddSingleton<MainPage>();
             mauiAppBuilder.Services.AddTransient<StartPage>();
             mauiAppBuilder.Services.AddTransient<ComicsPage>();
-
+            mauiAppBuilder.Services.AddTransient<CharactersPage>();
+            mauiAppBuilder.Services.AddTransient<ComicSeriesPage>();
 
             return mauiAppBuilder;
         }

@@ -19,9 +19,21 @@ namespace MauiMarvelHeroes.ViewModels
         }
 
         [RelayCommand]
-        private async Task GotoMovies()
+        private async Task GotoComics()
         {
             await NavigationService.NavigateToAsync(nameof(ComicsPage));
+        }
+
+        [RelayCommand]
+        private async Task GotoCharacters()
+        {
+            await NavigationService.NavigateToAsync(nameof(CharactersPage));
+        }
+
+        [RelayCommand]
+        private async Task GotoComicSeries()
+        {
+            await NavigationService.NavigateToAsync(nameof(ComicSeriesPage));
         }
     }
 }

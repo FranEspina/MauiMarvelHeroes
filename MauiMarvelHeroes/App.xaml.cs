@@ -30,7 +30,7 @@ namespace MauiMarvelHeroes
             }
 
 #if DEBUG
-            _settingsService.SkipIntro = true;
+            _settingsService.SkipIntro = false;
 #endif
 
         }

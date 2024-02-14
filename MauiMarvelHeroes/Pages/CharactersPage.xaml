@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <pages:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiMarvelHeroes.Pages.ComicsPage"
+             x:Class="MauiMarvelHeroes.Pages.CharactersPage"
              xmlns:pages="clr-namespace:MauiMarvelHeroes.Pages"
              xmlns:vm="clr-namespace:MauiMarvelHeroes.ViewModels"
              xmlns:model="clr-namespace:MauiMarvelHeroes.Models.MarvelApi"
-             x:DataType="vm:ComicsViewModel"          
+             x:DataType="vm:CharactersViewModel"          
              Title="">
 
     <Grid>
-        <CollectionView ItemsSource="{Binding Comics}"
+        <CollectionView ItemsSource="{Binding Characters}"
                         RemainingItemsThreshold="1"
                         RemainingItemsThresholdReachedCommand="{Binding LoadMoreItemsCommand}">
             <CollectionView.ItemsLayout>
@@ -19,7 +19,7 @@
                         HorizontalItemSpacing="30" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:MarvelComic">
+                <DataTemplate x:DataType="model:MarvelCharacter">
                     <Border StrokeThickness="4"
                         StrokeShape="RoundRectangle 0,0,20, 20"
                         Background="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray950}}"
@@ -33,12 +33,13 @@
                                     Offset="0.7" />
                             </LinearGradientBrush>
                         </Border.Stroke>
-                        <VerticalStackLayout>
+                        <VerticalStackLayout 
+                            HorizontalOptions="Center">
                             <Image Source="{Binding Thumbnail.Url}"
                                HeightRequest="425"
-                               WidthRequest="280"
-                               Aspect="AspectFill" />
-                            <Label Text="{Binding Title}"
+                               WidthRequest="425"
+                               Aspect="AspectFill"/>
+                            <Label Text="{Binding Name}"
                                    FontSize="Medium"
                                    Margin="0,10,0,0"
                                    HeightRequest="90" 

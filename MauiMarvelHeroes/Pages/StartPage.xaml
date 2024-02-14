@@ -86,11 +86,12 @@
                 <Label Text=".NET MAUI Marvel Heroes" 
                        Style="{StaticResource Headline}"
                        Margin="10"/>
-                <Label Text="Consulta tus personajes, comics y películas favoritas del universo Marvel !"
-                       Style="{StaticResource Body}"
+                <Label Text="Consulta tus personajes y comics favoritos del universo Marvel !"
+                       FontSize="Medium"
                        Margin="10"/>
                 <Button Text="Entrar"
                         Margin="10"
+                        WidthRequest="200"
                         Command="{Binding GotoMainPageCommand}"/>
             </VerticalStackLayout>
         </Border>
