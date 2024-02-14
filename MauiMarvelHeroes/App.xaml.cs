@@ -14,6 +14,7 @@ namespace MauiMarvelHeroes
         {
             _settingsService = settingsService;
             _navigationService = navigationService;
+            
             InitializeComponent();
 
             InitApp();
@@ -27,6 +28,10 @@ namespace MauiMarvelHeroes
             {
                 _settingsService.SkipIntro = false;
             }
+
+#if DEBUG
+            _settingsService.SkipIntro = true;
+#endif
 
         }
     }
