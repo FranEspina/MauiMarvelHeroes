@@ -4,19 +4,28 @@
              x:Class="MauiMarvelHeroes.Pages.ComicsPage"
              xmlns:pages="clr-namespace:MauiMarvelHeroes.Pages"
              xmlns:vm="clr-namespace:MauiMarvelHeroes.ViewModels"
+             xmlns:helpers="clr-namespace:MauiMarvelHeroes.Helpers"          
              xmlns:model="clr-namespace:MauiMarvelHeroes.Models.MarvelApi"
              x:DataType="vm:ComicsViewModel"          
              Title="">
-
+    <Shell.TitleView>
+        <Label Text="Comics" 
+               FontFamily="BadaboomBBRegular" 
+               FontSize="24" 
+               HorizontalOptions="Start" 
+               VerticalOptions="Center" />
+    </Shell.TitleView>
+    
     <Grid>
-        <CollectionView ItemsSource="{Binding Items}"
-                        RemainingItemsThreshold="1"
-                        RemainingItemsThresholdReachedCommand="{Binding LoadMoreItemsCommand}">
+        <CollectionView
+                ItemsSource="{Binding Items}"
+                RemainingItemsThreshold="1"
+                RemainingItemsThresholdReachedCommand="{Binding LoadMoreItemsCommand}">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical"
-                        Span="1"
-                        VerticalItemSpacing="20"
-                        HorizontalItemSpacing="30" />
+                                 Span="{x:Static helpers:DesignHelper.SpanColumns}"
+                                 VerticalItemSpacing="20"
+                                 HorizontalItemSpacing="30"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:MarvelComic">
@@ -24,7 +33,8 @@
                         StrokeShape="RoundRectangle 0,0,20, 20"
                         Background="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray950}}"
                         Padding="5"
-                        HorizontalOptions="Center">
+                        Margin="20,0,20,0"
+                        >
                         <Border.Stroke>
                             <LinearGradientBrush EndPoint="0,1">
                                 <GradientStop Color="{StaticResource RedMarvel}"

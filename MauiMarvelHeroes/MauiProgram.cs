@@ -6,6 +6,7 @@ using MauiMarvelHeroes.Services.RequestProvider;
 using MauiMarvelHeroes.Services.Settings;
 using MauiMarvelHeroes.ViewModels;
 using Microsoft.Extensions.Logging;
+using Microsoft.Maui.LifecycleEvents;
 
 namespace MauiMarvelHeroes
 {
@@ -15,7 +16,7 @@ namespace MauiMarvelHeroes
         {
             var builder = MauiApp.CreateBuilder();
             builder
-                .UseMauiApp<App>()  
+                .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("ACMESecretAgentBB_Reg.ttf", "ACMESecretAgentBBRegular");
@@ -26,10 +27,24 @@ namespace MauiMarvelHeroes
                 .RegisterAppServices()
                 .RegisterViewModels()
                 .RegisterPages()
-                .UseMauiCommunityToolkit();
+                .UseMauiCommunityToolkit()
+                .ConfigureLifecycleEvents(events =>
+                {
+#if ANDROID
+                    events.AddAndroid(android => android.OnCreate((activity, bundle) => MakeStatusBarTranslucent(activity)));
+
+                    static void MakeStatusBarTranslucent(Android.App.Activity activity)
+                    {
+                        activity.Window.AddFlags(Android.Views.WindowManagerFlags.DrawsSystemBarBackgrounds);
+                        activity.Window.ClearFlags(Android.Views.WindowManagerFlags.TranslucentStatus);
+                        activity.Window.SetStatusBarColor(activity.Resources.GetColor(Resource.Color.translucent));
+                    }
+#endif
+                });
+
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             

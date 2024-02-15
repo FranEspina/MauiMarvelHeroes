@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MauiMarvelHeroes.Services.MarvelApi;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MauiMarvelHeroes.Models.MarvelApi;
-public partial class MarvelComic
+public partial class MarvelComic : IMarvelQueryable
 {
     [JsonPropertyName("id")]
     public long Id { get; set; }
@@ -72,6 +73,14 @@ public partial class MarvelComic
 
     [JsonPropertyName("images")]
     public List<Thumbnail> Images { get; set; }
+
+    public bool HasThumbnail()
+    {
+        return Thumbnail != null
+            && Thumbnail.Path != null
+            && Thumbnail.Path.ToString().Length != 0
+            && !Thumbnail.Path.ToString().Contains("image_not_available");
+    }
 }
 
 public partial class ComicSeries

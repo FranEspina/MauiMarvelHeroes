@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MauiMarvelHeroes.Services.MarvelApi;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MauiMarvelHeroes.Models.MarvelApi
 {
-    public partial class MarvelCharacter
+    public partial class MarvelCharacter : IMarvelQueryable
     {
         [JsonPropertyName("id")]
         public long Id { get; set; }
@@ -27,7 +28,15 @@ namespace MauiMarvelHeroes.Models.MarvelApi
         [JsonPropertyName("resourceURI")]
         public Uri ResourceUri { get; set; }
 
+        public bool HasThumbnail()
+        {
+            return Thumbnail != null 
+                && Thumbnail.Path != null 
+                && Thumbnail.Path.ToString().Length != 0 
+                && !Thumbnail.Path.ToString().Contains("image_not_available");
+        }
     }
+
 
 
 }

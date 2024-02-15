@@ -27,11 +27,13 @@
     </Style>
 
     <Style TargetType="Shell"  ApplyToDerivedTypes="True">
+        <Setter Property="NavigationPage.HasNavigationBar" Value="False" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" />
+        <Setter Property="FlyoutBackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" />
     </Style>
 
-
     <Style TargetType="NavigationPage" ApplyToDerivedTypes="True">
+        <Setter Property="NavigationPage.HasNavigationBar" Value="False" />
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" />
     </Style>
 

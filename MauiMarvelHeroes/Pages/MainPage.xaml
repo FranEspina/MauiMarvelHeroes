@@ -2,31 +2,48 @@
 <pages:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:MauiMarvelHeroes.Pages"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              xmlns:vm="clr-namespace:MauiMarvelHeroes.ViewModels"
              x:Class="MauiMarvelHeroes.Pages.MainPage"
              x:DataType="vm:MainViewModel"
              Title="">
+
+    <ScrollView>
+        
     <FlexLayout Wrap="Wrap" AlignContent="SpaceEvenly" JustifyContent="SpaceAround" >
-        <ImageButton x:Name="imgHeroes"
+        <VerticalStackLayout HeightRequest="250">
+            <ImageButton x:Name="imgHeroes"
             Source="marvel_heroes.png"
             HeightRequest="200"
             Padding="10"
             Command="{Binding GotoCharactersCommand}"
             />
-        <ImageButton x:Name="imgComics"
+            <Label Text="Personajes" Style="{StaticResource Headline}" Margin="0,10,0,0"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout HeightRequest="250">
+            <ImageButton x:Name="imgComics"
             Source="marvel_comics.png"
             HeightRequest="200"     
             Padding="10"
                     
             Command="{Binding GotoComicsCommand}"
             />
-        <ImageButton x:Name="imgFilms"
+            <Label Text="Comics" Style="{StaticResource Headline}" Margin="0,10,0,0"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout HeightRequest="250">
+            <ImageButton x:Name="imgFilms"
             Source="marvel_studios.png"
             HeightRequest="200"
             Padding="10"
                      
             Command="{Binding GotoComicSeriesCommand}"
             />
+            <Label Text="Series" Style="{StaticResource Headline}" Margin="0,10,0,0"/>
+        </VerticalStackLayout>
     </FlexLayout>
+    </ScrollView>
+  
     
 </pages:ContentPageBase>

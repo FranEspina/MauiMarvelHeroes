@@ -3,4 +3,5 @@
     <color name="colorPrimary">#ED1D24</color>
     <color name="colorPrimaryDark">#ED1D24</color>
     <color name="colorAccent">#ED1D24</color>
+    <color name="translucent">#00000000</color>
 </resources>

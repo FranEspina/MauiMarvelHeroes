@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using MauiMarvelHeroes.Helpers;
 using MauiMarvelHeroes.Models.MarvelApi;
 using MauiMarvelHeroes.Services.MarvelApi;
 using MauiMarvelHeroes.Services.Navigation;
@@ -13,11 +14,11 @@ using System.Threading.Tasks;
 
 namespace MauiMarvelHeroes.ViewModels
 {
-    public partial class MarvelViewModel<T> : ViewModelBase
+    public partial class MarvelViewModel<T> : ViewModelBase where T : IMarvelQueryable
     {
         private readonly IMarvelApiService _marvelApiService;
         
-        private readonly uint _limit = 10;
+        private readonly uint _limit = 8;
         private uint _offset = 0;
 
         [ObservableProperty]
@@ -40,7 +41,7 @@ namespace MauiMarvelHeroes.ViewModels
 
             Copyright = response.Copyright;
             AttributionText = response.AttributionText;
-            Items = new ObservableCollection<T>(response.Data.Results);
+            Items = new ObservableCollection<T>(response.Data.Results.Where(i => i.HasThumbnail()));
         }
 
         [RelayCommand]
@@ -51,7 +52,7 @@ namespace MauiMarvelHeroes.ViewModels
             await IsBusyFor(async () =>
                     {
                         var response = await _marvelApiService.GetMarvelListAsync<T>(_limit, _offset);
-                        var items = response.Data.Results;
+                        var items = response.Data.Results.Where(i => i.HasThumbnail());
                         foreach (var item in items)
                         {
                             Items.Add(item);

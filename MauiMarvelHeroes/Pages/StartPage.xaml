@@ -1,22 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiMarvelHeroes.Pages.StartPage">
+             x:Class="MauiMarvelHeroes.Pages.StartPage"
+             >
 
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="{AppThemeBinding Light={StaticResource Gray100}, Dark={StaticResource Gray900}}" 
+                               StatusBarStyle="{AppThemeBinding Light=DarkContent, Dark=LightContent}" />
+    </ContentPage.Behaviors>
+    
     <Grid
-        IgnoreSafeArea="{OnPlatform Android=False, iOS=True}">
-
+        IgnoreSafeArea="{OnPlatform Android=True, iOS=True}">
 
         <!-- Heroes Images -->
         <Image
-            x:Name="imgThor"
+            x:Name="imgIronman"
             Opacity="0"
-            Source="thor.png"
+            Source="ironman.png"
             VerticalOptions="Start"
             HorizontalOptions="Center"
             TranslationX="-100"
-            TranslationY="30"
-            HeightRequest="200"/>
+            TranslationY="500"
+            HeightRequest="300"/>
 
         <Image
             x:Name="imgLobezno"
@@ -26,7 +32,17 @@
             HorizontalOptions="Center"
             TranslationX="-200"
             TranslationY="300"
-            HeightRequest="96"/>
+            HeightRequest="200"/>
+        
+        <Image
+            x:Name="imgThor"
+            Opacity="0"
+            Source="thor.png"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
+            TranslationX="-80"
+            TranslationY="170"
+            HeightRequest="280"/>
         
         <Image
             x:Name="imgHulk"
@@ -34,9 +50,9 @@
             Source="hulk.png"
             VerticalOptions="Start"
             HorizontalOptions="Center"
-            TranslationX="100"
+            TranslationX="110"
             TranslationY="200"
-            HeightRequest="900"/>
+            HeightRequest="700"/>
         
         <Image
             Opacity="0"
@@ -57,42 +73,38 @@
             TranslationX="-80"
             TranslationY="400"
             HeightRequest="300"/>
-
-
-        <Image
-            x:Name="imgIronman"
-            Opacity="0"
-            Source="ironman.png"
-            VerticalOptions="Start"
-            HorizontalOptions="Center"
-            TranslationX="-100"
-            TranslationY="600"
-            HeightRequest="200"/>
-
-
+        
         <Border
             x:Name="stackIntro"
             Opacity="0"
-            Padding="24,32"
+            Padding="18,18"
             BackgroundColor="{StaticResource RedMarvel}"
             Stroke="{StaticResource Gray900}"
-            HorizontalOptions="Fill"
             VerticalOptions="End"
-            Margin="20">
+            Margin="10,20"
+            MaximumWidthRequest="600">
             <Border.StrokeShape>
-                <RoundRectangle CornerRadius="24"/>
+                <RoundRectangle CornerRadius="18"/>
             </Border.StrokeShape>
             <VerticalStackLayout>
                 <Label Text=".NET MAUI Marvel Heroes" 
                        Style="{StaticResource Headline}"
-                       Margin="10"/>
-                <Label Text="Consulta tus personajes y comics favoritos del universo Marvel !"
+                       Margin="10,10,10,0"/>
+                <Label Text="Tus personajes favoritos del universo Marvel !"
                        FontSize="Medium"
-                       Margin="10"/>
-                <Button Text="Entrar"
+                       Margin="10,0,10,10"/>
+                <Grid HorizontalOptions="Fill" x:Name="enterButton">
+                    <Image Source="text_frame.png"
+                           Aspect="Fill"
+                           HeightRequest="100"
+                           WidthRequest="300" />
+                    <Button Text="Entrar"
                         Margin="10"
                         WidthRequest="200"
+                        TextColor="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource PrimaryDark}}"
+                        BackgroundColor="Transparent"
                         Command="{Binding GotoMainPageCommand}"/>
+                </Grid>
             </VerticalStackLayout>
         </Border>
 
