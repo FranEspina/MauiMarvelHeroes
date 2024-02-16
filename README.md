@@ -62,7 +62,7 @@ Los recursos de contenido e imágenes son facilitados por Marvel a través de su
 - Attribution Text. Data provided by Marvel. © 2024 MARVEL.
 - Copyright © 2024 MARVEL
 
-## Tipología 
+## Tipografía
 Las fuentes han sido descargadas de [gcomics](https://gcomics.online/) donde hablan en general de comic y en particular tienen un artículo sobre [tipografía](https://gcomics.online/blog/fuentes-gratis-para-comics/).
 
 En particular se han usado dos fuentes de Nate Piekos que permiten su uso sin fines comerciales. Si quieres usar las fuentes debes tener en cuenta su [fichero de licencia](./MauiMarvelHeroes/Resources/Fonts/fontinfo.txt). 
