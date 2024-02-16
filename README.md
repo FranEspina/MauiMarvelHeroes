@@ -44,10 +44,12 @@ https://github.com/FranEspina/MauiMarvelHeroes/assets/53045314/4f1b5b54-94b8-4d5
 ![Vista de una de las colecciones](https://github.com/FranEspina/MauiMarvelHeroes/assets/53045314/7335a710-a3bf-4f78-8de6-2ea2fbd17c4d)
 
 ### Tema claro: Animación inicio - Windows 
-![Animación inicio - Windows ](./images/starpageWinui.png)
+
+![Tema claro: Animación inicio - Windows ](https://github.com/FranEspina/MauiMarvelHeroes/assets/53045314/cbdd3667-0d59-481a-a091-671185b4a11c)
 
 ### Tema claro: Lista series comics - Windows
-![Lista series comics - Windows](./images/seriesWinui.png)
+
+![Tema claro: Lista series comics - Windows](https://github.com/FranEspina/MauiMarvelHeroes/assets/53045314/46229734-1b7c-40dc-b417-4d925c411a94)
 
 ## TO DO
 - Revisar cada una de las plataformas
